@@ -55,3 +55,38 @@ def draw_hexagon(x, y, side_len, fillcol):
     right(30)
     end_fill()
     up()
+
+
+def colors(colors_lst):
+    """Colors list"""
+    print(local.COLOR)
+    for col in colors_lst:
+        print('', col)
+
+
+def draw(color1, color2, count):
+    """Drawing all hexagons"""
+    side_len = float(sqrt(4 * (500 / (2 * count)) ** 2 / 3))
+    speed(0)
+    y = 250
+    x = -250
+    line = 1
+    for lines in range(count):
+        up()
+        for hexagons in range(count):
+            fillcol = color1
+            draw_hexagon(x, y, side_len, fillcol)
+            x = xcor() + sqrt(side_len ** 2 - (side_len / 2) ** 2) * 2
+            color1, color2 = color2, color1
+        if count % 2:
+            color1, color2 = color2, color1
+        if line % 2:
+            j = 1
+        else:
+            color1, color2 = color2, color1
+            j = 3
+        y = ycor() - 3 * side_len / 2
+        x = xcor() - (count * 2 - j) * sqrt(side_len ** 2 - (side_len / 2) ** 2)
+        goto(x, y)
+        line += 1
+    done()
