@@ -90,3 +90,17 @@ def draw(color1, color2, count):
         goto(x, y)
         line += 1
     done()
+
+
+def main():
+    colors_lst = [local.RED, local.ORANGE, local.YELLOW, local.GREEN, local.BLUE1, local.BLUE2, local.PURPLE]
+    colors(colors_lst)
+    color1 = get_color_choice()
+    color2 = get_color_choice()
+    count = get_num_hexagons()
+    screensize(500, 500)
+    draw(color1, color2, count)
+
+
+if __name__ == '__main__':
+    main()
