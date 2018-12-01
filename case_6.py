@@ -37,3 +37,21 @@ def get_color_choice():
         for i in range(7):
             if color == colors_lst[i]:
                 return codes[i]
+
+
+def draw_hexagon(x, y, side_len, fillcol):
+    """Hexagon drawing"""
+    goto(x, y)
+    fillcolor(fillcol)
+    down()
+    s = 0
+    begin_fill()
+    right(30)
+    while s < 600:
+        forward(side_len)
+        right(60)
+        s += 120
+    forward(side_len)
+    right(30)
+    end_fill()
+    up()
